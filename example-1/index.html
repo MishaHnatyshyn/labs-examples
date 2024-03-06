@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello I am your easy lab</h1>
+
+<section>
+    <h2>Calculator</h2>
+    <form id="calculator-form">
+        <label for="first-number">
+            <input type="number" name="first-number" id="first-number" placeholder="First number">
+        </label>
+
+        <label for="second-number">
+            <input type="number" name="second-number" id="second-number" placeholder="Second number">
+        </label>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+        <p>
+            <span>Result: </span>
+            <span id="result"></span>
+        </p>
+    </div>
+</section>
+
+</body>
+
+
+<script>
+    const form = document.getElementById('calculator-form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const formProps = Object.fromEntries(formData);
+
+        result.innerText = Number(formProps['first-number']) + Number(formProps['second-number']);
+    });
+</script>
+</html>
